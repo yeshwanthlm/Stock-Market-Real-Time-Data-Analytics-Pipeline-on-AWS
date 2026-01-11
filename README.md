@@ -3,7 +3,7 @@
 
 
 ### Step 2: 
-Attach the following policies for ```sh Lambda_Kinesis_DynamoDB_Role```
+Attach the following policies for ```Lambda_Kinesis_DynamoDB_Role```
 ```sh
 AmazonKinesisFullAccess
 AmazonDynamoDBFullAccess
@@ -41,8 +41,8 @@ FROM stock_data_table
 WHERE ABS(((price - previous_close) / previous_close) * 100) > 5;
 ```
 
-Step 4:
-Attach the following policies for ```sh StockTrendLambdaRole```
+### Step 4:
+Attach the following policies for ```StockTrendLambdaRole```
 ```sh
 AmazonDynamoDBFullAccess
 AmazonSNSFullAccess
