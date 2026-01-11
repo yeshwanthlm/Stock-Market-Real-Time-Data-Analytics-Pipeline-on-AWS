@@ -1,5 +1,19 @@
 # Stock Market Real-Time Data Analytics Pipeline on AWS
 
+### Overview of Project ☁️
+This project builds a real-time stock market data analytics pipeline using AWS, leveraging event-driven architecture and serverless technologies. The architecture ingests, processes, stores, and analyzes stock market data in real-time while minimizing costs. .
+
+
+### Key tasks include:
+1. Streaming real-time stock data from sources like yfinance using Amazon Kinesis Data Streams.
+2. Processing data and detecting anomalies with AWS Lambda.
+3. Storing processed stock data in Amazon DynamoDB for low-latency querying.
+4. Storing raw stock data in Amazon S3 for long-term analytics.
+5. Querying historical data using Amazon Athena.
+6. Sending real-time stock trend alerts using AWS Lambda & Amazon SNS (Email/SMS).
+
+### Project Architecture:
+<img width="1538" height="750" alt="image" src="https://github.com/user-attachments/assets/ec477d89-a2ee-4bab-8a5e-602d2cd81de4" />
 
 
 ### Step 2: 
