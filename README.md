@@ -3,7 +3,6 @@
 ### Overview of Project ☁️
 This project builds a real-time stock market data analytics pipeline using AWS, leveraging event-driven architecture and serverless technologies. The architecture ingests, processes, stores, and analyzes stock market data in real-time while minimizing costs. .
 
-
 ### Key tasks include:
 1. Streaming real-time stock data from sources like yfinance using Amazon Kinesis Data Streams.
 2. Processing data and detecting anomalies with AWS Lambda.
@@ -14,7 +13,6 @@ This project builds a real-time stock market data analytics pipeline using AWS, 
 
 ### Project Architecture:
 <img width="1538" height="750" alt="image" src="https://github.com/user-attachments/assets/ec477d89-a2ee-4bab-8a5e-602d2cd81de4" />
-
 
 ### Prerequisites: 
 1. Install Python (if not already installed): Open a code editor like VSCode and ensure you have Python 3.8+ installed by running the below command in the terminal.
@@ -27,7 +25,7 @@ This project builds a real-time stock market data analytics pipeline using AWS, 
 ```sh
 aws configure
 ```
-4. Create a Role for LambdaFunction StockMarketLambdaRole and Attach the following policies: 
+4. Create a Role for LambdaFunction ```StockMarketLambdaRole``` and Attach the following policies: 
 ```sh
 AmazonKinesisFullAccess
 AmazonDynamoDBFullAccess
@@ -50,6 +48,8 @@ FROM stock_data_table
 ORDER BY price_change DESC
 LIMIT 5;
 ```
+#### What does this query do?
+This query calculates the price change for each stock by subtracting yesterday’s closing price from the current price, creating a new column called price_change. It then sorts all stocks by this change in descending order and returns the top 5 stocks with the biggest price increase.
 
 Get Average Trading Volume Per Stock
 ```sql
@@ -57,6 +57,8 @@ SELECT symbol, AVG(volume) AS avg_volume
 FROM stock_data_table
 GROUP BY symbol;
 ```
+#### What does this query do?
+This query groups all records by stock symbol and calculates the average trading volume for each stock using AVG(volume). The result shows how actively each stock is traded on average.
 
 Find Anomalous Stocks (Price Change > 5%)
 ```sql
@@ -65,3 +67,5 @@ SELECT symbol, price, previous_close,
 FROM stock_data_table
 WHERE ABS(((price - previous_close) / previous_close) * 100) > 5;
 ```
+#### What does this query do?
+This query calculates the percentage price change for each stock compared to its previous close and labels it as change_percent. It then filters and returns only those stocks whose price moved more than 5% up or down, identifying unusual or anomalous price movements.
