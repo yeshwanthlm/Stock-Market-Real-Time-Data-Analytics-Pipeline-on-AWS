@@ -25,6 +25,11 @@ This project builds a real-time stock market data analytics pipeline using AWS, 
 ```sh
 aws configure
 ```
+* AWS Access Key ID → Enter your key
+* AWS Secret Access Key → Enter your secret
+* Default region name → Use the region where you created the Kinesis stream (e.g., `us-east-1`).
+* Default output format → Leave empty (press Enter).
+
 4. Create a Role for LambdaFunction ```StockMarketLambdaRole``` and Attach the following policies: 
 ```sh
 AmazonKinesisFullAccess
@@ -32,6 +37,10 @@ AmazonDynamoDBFullAccess
 AWSLambdaBasicExecutionRole
 AmazonS3FullAccess
 AmazonSNSFullAccess
+```
+5. Clone [this](https://github.com/yeshwanthlm/Stock-Market-Real-Time-Data-Analytics-Pipeline-on-AWS/tree/main) repository on your local machine:
+```sh
+git clone https://github.com/yeshwanthlm/Stock-Market-Real-Time-Data-Analytics-Pipeline-on-AWS.git
 ```
 
 ### Required SQL Queries: 
